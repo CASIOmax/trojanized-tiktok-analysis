@@ -1,0 +1,37 @@
+Trojanized TikTok — Fake "TikTok Shop" Scam
+Indicators of Compromise
+============================================================
+
+# Sample (APK)
+sha256   21a61defbb4757a0ef8733267e1f2103e2d0c3c5bfeeabcfed0d3139fb541948
+sha1     35f59db6e25002044b84422733303fd88ab6fe5a
+md5      4d5269e43ab14d8b19d76289ec88eb2d
+size     469377587
+masq     TikTok 39.1.3 / com.zhiliaoapp.musically
+
+# Signing (attacker key)
+signer-sha256   4655e54daff44bc172bcded4455a26a047594b6569cd870613d44ff3eee2d733
+signer-subject  CN=Android, O=Android   (NotBefore 2025-06-02)
+
+# Network / C2
+domain   dmszj.sbs
+domain   tzvet.sbs
+domain   iages.sbs
+domain   opiwq.sbs
+ip       118.107.59.222
+url-path /tkAndroid2.php?tokenId=
+ua-field Android-TK-<model>-<brand>-<release>
+
+# Infrastructure
+registrar   NameSilo, LLC
+created     2024-12-02 (all four domains, 3-year term)
+dns         becky.ns.cloudflare.com / conrad.ns.cloudflare.com (DNS only, origin exposed)
+host        CTG Server Ltd (APNIC) — abuse@ctgserver.net / abuse@rackip.com
+
+# In-APK artifacts
+java-pkg    com.tiktoktweak.*
+java-pkg    com.myairtelapp.hook.*
+java-pkg    com.myairtelapp.plugin.*
+native-lib  libtweak-mod.so   (JNI: Java_com_tiktoktweak_WebViewInProfile_setupWeb*)
+assets      sign.png, sign_cert_12.png, sign_cert_14.png (genuine TikTok cert/SigningInfo, disguised)
+xor-key     0x4B
